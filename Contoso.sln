@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4B81D8C2-FA16-4ACA-B497-2CD551849C21}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,6 +18,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoService", "ContosoService\ContosoService.csproj", "{48D256E1-5354-455C-850D-95A33BC55B1F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoDatabase", "ContosoDatabase\ContosoDatabase.csproj", "{8726CCDE-6930-41ED-A433-812DA9E2B0B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yodo1DataModels", "Yodo1DataModels\Yodo1DataModels.csproj", "{3A0B9382-AFA4-40A5-B1C9-2625DF184884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yodo1ServiceClient", "Yodo1ServiceClient\Yodo1ServiceClient.csproj", "{1275478E-641C-4ED4-AB83-6901EBE32641}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +103,38 @@ Global
 		{8726CCDE-6930-41ED-A433-812DA9E2B0B2}.Release|x64.Build.0 = Release|Any CPU
 		{8726CCDE-6930-41ED-A433-812DA9E2B0B2}.Release|x86.ActiveCfg = Release|Any CPU
 		{8726CCDE-6930-41ED-A433-812DA9E2B0B2}.Release|x86.Build.0 = Release|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Debug|ARM.Build.0 = Debug|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Debug|x64.Build.0 = Debug|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Debug|x86.Build.0 = Debug|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Release|ARM.Build.0 = Release|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Release|x64.ActiveCfg = Release|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Release|x64.Build.0 = Release|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Release|x86.ActiveCfg = Release|Any CPU
+		{3A0B9382-AFA4-40A5-B1C9-2625DF184884}.Release|x86.Build.0 = Release|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Debug|ARM.Build.0 = Debug|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Debug|x64.Build.0 = Debug|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Debug|x86.Build.0 = Debug|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Release|ARM.ActiveCfg = Release|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Release|ARM.Build.0 = Release|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Release|x64.ActiveCfg = Release|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Release|x64.Build.0 = Release|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Release|x86.ActiveCfg = Release|Any CPU
+		{1275478E-641C-4ED4-AB83-6901EBE32641}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
