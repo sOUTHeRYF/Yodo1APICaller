@@ -39,7 +39,13 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonDefine.cs" />
     <Compile Include="IServiceRequest.cs" />
+    <Compile Include="IServiceResponse.cs" />
+    <Compile Include="OnlineConfig\OnlineConfigRequest.cs" />
+    <Compile Include="OnlineConfig\OnlineConfigResponse.cs" />
+    <Compile Include="OnlineConfig\ServiceDefine.cs" />
+    <Compile Include="Yodo1RequestJsonContent.cs" />
     <Compile Include="Yodo1ServiceConfigure.cs" />
     <Compile Include="Yodo1ServiceResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

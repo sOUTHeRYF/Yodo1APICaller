@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Yodo1ServiceClient
 {
-    public class Yodo1ServiceRequest
+    class Yodo1RequestJsonContent
     {
-        static public IServiceRequest OnlineConfigService = new OnlineConfig.OnlineConfigRequest();
-
     }
 }
