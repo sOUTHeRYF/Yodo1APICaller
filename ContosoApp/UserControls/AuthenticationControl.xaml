@@ -101,115 +101,18 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Height="48">
-
-        <!--  Start  -->
-        <Button HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                HorizontalContentAlignment="Left"
-                Click="{x:Bind ViewModel.LoginClick}"
-                Padding="0"
-                Style="{StaticResource SplitViewPaneButtonStyle}"
-                Visibility="{Binding ShowWelcome, Converter={StaticResource boolToVisConverter}, Mode=OneWay}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="48"/>
-                    <ColumnDefinition Width="8"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <FontIcon Grid.RowSpan="2"
-                          FontFamily="Segoe MDL2 Assets"
-                          Glyph="&#xE1E2;"/>
-                <TextBlock Grid.RowSpan="2"
-                           Grid.Column="2"
-                           VerticalAlignment="Center"
-                           Text="Sign in"/>
-            </Grid>
-        </Button>
-
-
-        <!--  User info  -->
-        <Button HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                HorizontalContentAlignment="Left"
-                Click="{x:Bind ViewModel.LogoutClick}"
-                Padding="0"
-                Style="{StaticResource SplitViewPaneButtonStyle}"
-                Visibility="{Binding ShowData, Converter={StaticResource boolToVisConverter}, Mode=OneWay}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="48"/>
-                    <ColumnDefinition Width="8"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Ellipse x:Name="Ellipse"
-                         Grid.RowSpan="2"
-                         Width="24"
-                         Height="24">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="{Binding Photo, Mode=OneWay}"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-                <TextBlock Grid.Column="2"
-                           HorizontalAlignment="Center"
-                           Style="{StaticResource CaptionTextBlockStyle}"
-                           Text="{Binding Email}"/>
-                <TextBlock Grid.Row="1"
-                           Grid.Column="2"
-                           VerticalAlignment="Center"
-                           Text="Sign out"/>
-            </Grid>
-        </Button>
-
-
-        <!--  Loading  -->
-        <Grid Visibility="{Binding ShowLoading, Converter={StaticResource boolToVisConverter}, Mode=OneWay}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="48"/>
-                <ColumnDefinition Width="8"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <ProgressRing Grid.RowSpan="2"
-                          Width="36"
-                          Height="36"
-                          IsActive="True"/>
-            <TextBlock Grid.RowSpan="2"
-                       Grid.Column="2"
-                       VerticalAlignment="Center"
-                       Text="Signing in..."/>
-        </Grid>
-
-        <!--  Error  -->
-        <Grid Visibility="{Binding ShowError, Converter={StaticResource boolToVisConverter}, Mode=OneWay}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="48"/>
-                <ColumnDefinition Width="8"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <FontIcon Grid.RowSpan="2"
-                      FontFamily="Segoe MDL2 Assets"
-                      Glyph="&#xE1E0;"/>
-            <TextBlock Grid.RowSpan="2"
-                       Grid.Column="2"
-                       VerticalAlignment="Center"
-                       Text=":( Something went wrong."/>
-        </Grid>
-
+    <Grid Height="180">
+        <StackPanel x:Name="FooterPanel" Orientation="Vertical" RelativePanel.AlignBottomWithPanel="True">
+            <Image Source="http://www.yodo1.cn/wp-content/themes/t9_yodo1/images/logo.png" AutomationProperties.Name="Yodo1 Logo" Stretch="None" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <TextBlock x:Name="Copyright" Text="&#xA9; Yodo1,LTD. All rights reserved." Style="{StaticResource CopyrightTextStyle}"
+                                   RelativePanel.Above="LinksPanel" Margin="10,10,0,0"
+                                   TextWrapping="Wrap"/>
+            <StackPanel x:Name="LinksPanel" Orientation="Horizontal" Margin="10,10,0,10">
+                <HyperlinkButton Content="GitHub" Tag="https://github.com/sOUTHeRYF/Yodo1APICaller"
+                        Click="HyperlinkButton_Click" FontSize="12" Style="{StaticResource HyperlinkStyle}" />
+                <TextBlock Text="|"  Style="{StaticResource SeparatorStyle}" VerticalAlignment="Center" />
+                <HyperlinkButton Content="Confluence of Yodo1 Services" Tag="https://confluence.yodo1.cn/pages/viewpage.action?pageId=1278190" Click="HyperlinkButton_Click" FontSize="12" Style="{StaticResource HyperlinkStyle}"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>

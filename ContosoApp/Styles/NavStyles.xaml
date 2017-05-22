@@ -240,5 +240,17 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="SeparatorStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="9"/>
+        <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+    </Style>
 
+    <Style x:Key="HyperlinkStyle" TargetType="HyperlinkButton">
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+    <Style x:Key="CopyrightTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
 </ResourceDictionary>
