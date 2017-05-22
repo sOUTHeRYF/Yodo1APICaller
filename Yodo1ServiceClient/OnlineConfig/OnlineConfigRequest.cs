@@ -22,7 +22,7 @@ namespace Yodo1ServiceClient.OnlineConfig
                     switch (services)
                     {
                         case Services.ADD: {
-                                requestUrl = serviceContent[currentConfigureArticle];
+                              //  requestUrl = serviceContent[currentConfigureArticle];
                             } break;
                         case Services.DEL: {
 

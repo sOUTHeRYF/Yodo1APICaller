@@ -280,6 +280,7 @@ namespace ContosoApp
         {
             TogglePaneButton.IsChecked = true;
             NavPaneDivider.Visibility = Visibility.Visible;
+            Yodo1LogoControl.Visibility = Visibility.Visible;
         }
 
         /// <summary>
@@ -287,9 +288,13 @@ namespace ContosoApp
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void RootSplitView_PaneClosed(SplitView sender, object args) => 
+        private void RootSplitView_PaneClosed(SplitView sender, object args)
+        {
             NavPaneDivider.Visibility = Visibility.Collapsed;
-
+            Yodo1LogoControl.Visibility = Visibility.Collapsed;
+        }
+            
+            
         /// <summary>
         /// Callback when the SplitView's Pane is toggled closed.  When the Pane is not visible
         /// then the floating hamburger may be occluding other content in the app unless it is aware.
@@ -304,6 +309,7 @@ namespace ContosoApp
         private void TogglePaneButton_Checked(object sender, RoutedEventArgs e)
         {
             NavPaneDivider.Visibility = Visibility.Visible;
+            Yodo1LogoControl.Visibility = Visibility.Visible;
             CheckTogglePaneButtonSizeChanged();
         }
 

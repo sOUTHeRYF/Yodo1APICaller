@@ -99,13 +99,12 @@
       <DependentUpon>AppShell.xaml</DependentUpon>
     </Compile>
     <Compile Include="StateTriggers\MobileScreenTrigger.cs" />
-    <Compile Include="UserControls\AuthenticationControl.xaml.cs">
-      <DependentUpon>AuthenticationControl.xaml</DependentUpon>
+    <Compile Include="UserControls\CopyRightControl.xaml.cs">
+      <DependentUpon>CopyRightControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\CollapsibleSearchBox.xaml.cs">
       <DependentUpon>CollapsibleSearchBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\AuthenticationViewModel.cs" />
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Navigation\NavMenuItem.cs" />
@@ -179,7 +178,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\AuthenticationControl.xaml">
+    <Page Include="UserControls\CopyRightControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
