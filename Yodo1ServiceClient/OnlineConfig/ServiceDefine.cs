@@ -8,11 +8,12 @@ namespace Yodo1ServiceClient.OnlineConfig
 {
     public enum Services
     {
-        ADD             = 0,
+        WRONG       = 0,
         DEL              = 1,
         MODIFY       = 2,
         INHERIT       = 3,
         WEBGET      = 4,
         CLIENTGET  = 5,
+        ADD             = 6
     }
 }

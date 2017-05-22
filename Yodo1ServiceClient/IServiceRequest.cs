@@ -11,6 +11,7 @@ namespace Yodo1ServiceClient
     {
         protected Dictionary<ConfigureArticle, ServiceConfigureContent> serviceContent;
         protected HttpClient innerClient = new HttpClient();
+        protected ConfigureArticle currentConfigureArticle = ConfigureArticle.PROD;
         public void SetServiceConfigure(Dictionary<ConfigureArticle,ServiceConfigureContent> content)
         {
             if (null != content)
@@ -20,26 +21,22 @@ namespace Yodo1ServiceClient
             else
                 this.serviceContent = new Dictionary<ConfigureArticle, ServiceConfigureContent>();
         }
-        public bool IfConfigureReady()
+        public void SetArticle(ConfigureArticle article) { this.currentConfigureArticle = article; }
+        protected bool IfConfigureReady()
         {
             return serviceContent?.Count > 0;
         }
-        public async Task<T> PostData<T>(String url,Dictionary<string,string> param) where T:IServiceResponse,new()
+        protected async Task<T> PostData<T>(String url,HttpContent content) where T:IServiceResponse,new()
         {
             T responseObj = new T();
-            HttpContent content = new HttpContent();
 
-            HttpResponseMessage response = await innerClient.PostAsync(url, null);
+            HttpResponseMessage response = await innerClient.PostAsync(url, content);
             string resultStr = await response.Content.ReadAsStringAsync();
             responseObj.SetWebStatus(response.StatusCode);
             responseObj.SetRes(resultStr);
             return responseObj;
         }
-        public void Test<T>(T a) where T: IServiceRequest
-        {
-
-        }
-       abstract public IServiceResponse MakeCall(int api,Dictionary<string,string> param);
+       abstract  public Task<IServiceResponse> MakeCall(int api,Dictionary<string,string> param);
        
     }
 }

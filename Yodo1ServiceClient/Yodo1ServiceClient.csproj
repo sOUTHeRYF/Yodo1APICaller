@@ -42,6 +42,7 @@
     <Compile Include="CommonDefine.cs" />
     <Compile Include="IServiceRequest.cs" />
     <Compile Include="IServiceResponse.cs" />
+    <Compile Include="JsonHelper.cs" />
     <Compile Include="OnlineConfig\OnlineConfigRequest.cs" />
     <Compile Include="OnlineConfig\OnlineConfigResponse.cs" />
     <Compile Include="OnlineConfig\ServiceDefine.cs" />
