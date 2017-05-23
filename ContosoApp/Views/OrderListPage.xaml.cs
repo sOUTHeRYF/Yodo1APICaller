@@ -23,7 +23,7 @@
 //  ---------------------------------------------------------------------------------
 
 using ContosoModels;
-using ContosoApp.ViewModels;
+using Yodo1APICaller.ViewModels;
 using PropertyChanged;
 using System;
 using Windows.ApplicationModel.Email;
@@ -33,7 +33,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-namespace ContosoApp.Views
+namespace Yodo1APICaller.Views
 {
     /// <summary>
     /// Displays the list of orders.

@@ -23,13 +23,13 @@
 //  ---------------------------------------------------------------------------------
 
 using ContosoModels;
-using ContosoApp.Commands;
+using Yodo1APICaller.Commands;
 using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ContosoApp.ViewModels
+namespace Yodo1APICaller.ViewModels
 {
     [ImplementPropertyChanged]
     /// <summary>

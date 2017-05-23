@@ -9,7 +9,7 @@ This sample runs on the Universal Windows Platform (UWP).
 
 The app showcases features useful to enterprise developers, like user authentication, UI controls, and cloud database integration.
 
-![ContosoApp screenshot 1](screenshot1.png)
+![Yodo1APICaller screenshot 1](screenshot1.png)
 
 ## Features
 
@@ -38,29 +38,29 @@ Additionally, to receive the latest updates to Windows and the development tools
 
 ### Run
 
-Set your startup project as **ContosoApp**, then press F5 to run.
+Set your startup project as **Yodo1APICaller**, then press F5 to run.
 
 ### Complete setup
 
 To fully explore the sample, you'll need to connect to your own Azure Active Directory and data source. Here's the steps you'll need to take:  
 
-- Set your client Id: Set the *AccountClientId* field in [AuthenticationViewModel.cs](ContosoApp/ViewModels/AuthenticationViewModel.cs#55) to your Azure account client Id.
+- Set your client Id: Set the *AccountClientId* field in [AuthenticationViewModel.cs](Yodo1APICaller/ViewModels/AuthenticationViewModel.cs#55) to your Azure account client Id.
 - Set the API endpoint: In [ApiHelper.cs](ContosoModels/Database/ApiHelper.cs#44), set the value of the *BaseUrl* constant to match the url the backing service is running on.
 - Set a database connection string: In [ContosoContext.cs](ContosoService/ContosoContext.cs#39), set the connection string to one of your own local or remote databases.
 - Associate this sample with the Store: Authentication requires store association. To associate the app with the Store, right click the project in Visual Studio and select **Store** -> **Associate App with the Store**. Then follow the instructions in the wizard.
 
 You can then either start the service running locally, or deploy it to Azure. 
 
-- To run locally, right-click the solution, choose *Properties*, and choose to start both **ContosoApp** and **ContosoService** at the same time. 
+- To run locally, right-click the solution, choose *Properties*, and choose to start both **Yodo1APICaller** and **ContosoService** at the same time. 
 - To deploy to Azure, right-click ContosoService, choose *Publish*, and then follow the steps in the wizard.
 
 ## Code at a glance
 
 If you're only interested in specific tasks and don't want to browse or run the entire sample, check out some of these files: 
 
-- Authentication, user info, and Microsoft Graph: [AuthenticationControl.xaml](ContosoApp/UserControls/AuthenticationControl.xaml) and [AuthenticationViewModel.cs](ContosoApp/ViewModels/AuthenticationViewModel.cs)
-- App shell and navigation menu: [AppShell.xaml](ContosoApp/AppShell.xaml), [NavMenuItem.cs](ContosoApp/Navigation/NavMenuItem.cs), and [NavMenuListView.cs](ContosoApp/Navigation/NavMenuListView.cs)
-- Master/details and form layouts UI: [CustomerListPage.xaml](ContosoApp/Views/CustomerListPage.xaml), [CustomerListPageViewModel.cs](ContosoApp/ViewModels/CustomerListPageViewModel.cs), [CustomerDetailPage.xaml](ContosoApp/Views/CustomerDetailPage.xaml), [CustomerDetailPageViewModel.cs](ContosoApp/ViewModels/CustomerDetailsPageViewModel.cs), [OrderListPage.xaml](ContosoApp/Views/OrderListPage.xaml), [OrderListPageViewModel.cs](ContosoApp/ViewModels/OrderListPageViewModel.cs), [OrderDetailPage.xaml](ContosoApp/Views/OrderDetailPage.xaml), [OrderDetailPageViewModel.cs](ContosoApp/ViewModels/OrderDetailPageViewModel.cs)
+- Authentication, user info, and Microsoft Graph: [AuthenticationControl.xaml](Yodo1APICaller/UserControls/AuthenticationControl.xaml) and [AuthenticationViewModel.cs](Yodo1APICaller/ViewModels/AuthenticationViewModel.cs)
+- App shell and navigation menu: [AppShell.xaml](Yodo1APICaller/AppShell.xaml), [NavMenuItem.cs](Yodo1APICaller/Navigation/NavMenuItem.cs), and [NavMenuListView.cs](Yodo1APICaller/Navigation/NavMenuListView.cs)
+- Master/details and form layouts UI: [CustomerListPage.xaml](Yodo1APICaller/Views/CustomerListPage.xaml), [CustomerListPageViewModel.cs](Yodo1APICaller/ViewModels/CustomerListPageViewModel.cs), [CustomerDetailPage.xaml](Yodo1APICaller/Views/CustomerDetailPage.xaml), [CustomerDetailPageViewModel.cs](Yodo1APICaller/ViewModels/CustomerDetailsPageViewModel.cs), [OrderListPage.xaml](Yodo1APICaller/Views/OrderListPage.xaml), [OrderListPageViewModel.cs](Yodo1APICaller/ViewModels/OrderListPageViewModel.cs), [OrderDetailPage.xaml](Yodo1APICaller/Views/OrderDetailPage.xaml), [OrderDetailPageViewModel.cs](Yodo1APICaller/ViewModels/OrderDetailPageViewModel.cs)
 - Database and REST API calls: [ContosoDataSource.cs](ContosoModels/Database/ContosoDataSource.cs), [ApiHelper.cs](ContosoModels/Database/ApiHelper.cs), [CustomerController.cs](ContosoService/Controllers/CustomerController.cs), [OrderController.cs](ContosoService/Controllers/OrderController.cs), [ProductController.cs](ContosoService/Controllers/ProductController.cs)
 
 ## Design patterns

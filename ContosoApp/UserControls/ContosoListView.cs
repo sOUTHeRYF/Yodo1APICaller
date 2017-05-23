@@ -28,7 +28,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
-namespace ContosoApp.UserControls
+namespace Yodo1APICaller.UserControls
 {
     class ContosoListView : ListView
     {

@@ -22,7 +22,7 @@
 //  THE SOFTWARE.
 //  ---------------------------------------------------------------------------------
 
-using ContosoApp.ViewModels;
+using Yodo1APICaller.ViewModels;
 using PropertyChanged;
 using System.Linq;
 using Windows.Foundation.Metadata;
@@ -32,7 +32,7 @@ using Windows.UI.Xaml.Media.Animation;
 using System;
 using System.Collections.ObjectModel;
 
-namespace ContosoApp.Views
+namespace Yodo1APICaller.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

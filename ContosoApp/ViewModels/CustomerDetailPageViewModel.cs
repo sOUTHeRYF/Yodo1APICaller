@@ -22,13 +22,13 @@
 //  THE SOFTWARE.
 //  ---------------------------------------------------------------------------------
 
-using ContosoApp.Commands;
+using Yodo1APICaller.Commands;
 using ContosoModels;
 using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
-namespace ContosoApp.ViewModels
+namespace Yodo1APICaller.ViewModels
 {
     [ImplementPropertyChanged]
     /// <summary>

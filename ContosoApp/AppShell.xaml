@@ -3,14 +3,14 @@
 
 -->
 
-<Page x:Class="ContosoApp.AppShell"
+<Page x:Class="Yodo1APICaller.AppShell"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="using:ContosoApp"
+      xmlns:local="using:Yodo1APICaller"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:nav="using:ContosoApp.Navigation"
-      xmlns:uc="using:ContosoApp.UserControls"
+      xmlns:nav="using:Yodo1APICaller.Navigation"
+      xmlns:uc="using:Yodo1APICaller.UserControls"
       KeyDown="AppShell_KeyDown"
       TabNavigation="Cycle"
       mc:Ignorable="d">

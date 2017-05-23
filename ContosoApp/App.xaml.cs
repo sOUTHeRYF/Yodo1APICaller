@@ -22,14 +22,14 @@
 //  THE SOFTWARE.
 //  ---------------------------------------------------------------------------------
 
-using ContosoApp.Views;
+using Yodo1APICaller.Views;
 using System;
 using Windows.ApplicationModel.Activation;
 using Windows.Globalization;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Animation;
 
-namespace ContosoApp
+namespace Yodo1APICaller
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

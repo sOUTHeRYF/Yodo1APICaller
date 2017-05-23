@@ -26,7 +26,7 @@ using ContosoModels;
 using System.Text.RegularExpressions;
 using Telerik.Core;
 
-namespace ContosoApp.ViewModels
+namespace Yodo1APICaller.ViewModels
 {
     /// <summary>
     /// Wrapper for the Customer model in the master/details Customers page.

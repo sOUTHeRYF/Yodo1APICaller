@@ -29,8 +29,8 @@ namespace Yodo1ServiceClient
     }
     public struct ServiceConfigureContent
     {
-        string Domain;
-        Dictionary<int, APIContent> APIContents;
+        public string Domain;
+        public Dictionary<int, APIContent> APIContents;
         public ServiceConfigureContent(string domain, Dictionary<int, APIContent> apis)
         {
             this.Domain = domain;
@@ -39,12 +39,35 @@ namespace Yodo1ServiceClient
             else
                 this.APIContents = new Dictionary<int, APIContent>();
         }
+        public string GetFullUri(int func)
+        {
+            StringBuilder result = new StringBuilder("");
+            if (APIContents.ContainsKey(func))
+            {
+                APIContent currentContent = APIContents[func];
+                if (currentContent.ProtType == ProtocalType.HTTP)
+                {
+                    result.Append("http://");
+                }
+                else
+                {
+                    result.Append("https://");
+                }
+                result.Append(this.Domain + "/");
+                result.Append(currentContent.APIPath);
+            }
+            return result.ToString();
+        }
+        public bool GetIfPost(int func)
+        {
+            return APIContents.ContainsKey(func) ? APIContents[func].ReqType == RequestType.POST : false;
+        }
     }
     public struct APIContent
     {
-        string APIPath;
-        RequestType ReqType;
-        ProtocalType ProtType;
+        public string APIPath;
+        public RequestType ReqType;
+        public ProtocalType ProtType;
         public APIContent(string apipath, RequestType type, ProtocalType ptype = ProtocalType.HTTP)
         {
             this.APIPath = apipath;

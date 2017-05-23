@@ -15,14 +15,16 @@ namespace Yodo1ServiceClient.OnlineConfig
             {
                 HttpContent webContent = null;
                 string requestUrl = null;
+                bool ifPost = false;
                 Services services = new Services();
+                /*
                 try
                 {
                     services = (Services)api;
                     switch (services)
                     {
                         case Services.ADD: {
-                              //  requestUrl = serviceContent[currentConfigureArticle];
+
                             } break;
                         case Services.DEL: {
 
@@ -33,16 +35,27 @@ namespace Yodo1ServiceClient.OnlineConfig
                         case Services.INHERIT: {
 
                             } break;
+                        case Services.WEBGET: {
+                            }break;
+                        case Services.CLIENTGET: {
+                            }break;
                     }
                 }
                 catch(Exception e)
                 {
                     rep.FailureAPINotExist();
                     return rep;
-                }
+                }*/
+                requestUrl = serviceContent[currentConfigureArticle].GetFullUri(api);
+                ifPost = serviceContent[currentConfigureArticle].GetIfPost(api);
+                Yodo1RequestJsonContent jsonContent = new Yodo1RequestJsonContent(param, Encoding.UTF8);
+                webContent = jsonContent.getContent();
                 if (null != requestUrl && null != webContent)
                 {
-                    rep = await PostData<OnlineConfigResponse>(requestUrl, webContent) ;
+                    if(ifPost)
+                        rep = await PostData<OnlineConfigResponse>(requestUrl, webContent) ;
+                    else
+                        rep = await PostData<OnlineConfigResponse>(requestUrl, webContent);
                 }
             }
             else

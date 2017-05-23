@@ -27,7 +27,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 
-namespace ContosoApp
+namespace Yodo1APICaller
 {
     /// <summary>
     /// Static class for global utilities. 

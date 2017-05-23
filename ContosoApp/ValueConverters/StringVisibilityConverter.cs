@@ -30,7 +30,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace ContosoApp.ValueConverters
+namespace Yodo1APICaller.ValueConverters
 {
     using System;
     using Windows.UI.Xaml;

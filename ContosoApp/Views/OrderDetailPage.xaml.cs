@@ -23,7 +23,7 @@
 //  ---------------------------------------------------------------------------------
 
 using ContosoModels;
-using ContosoApp.ViewModels;
+using Yodo1APICaller.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -33,7 +33,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace ContosoApp.Views
+namespace Yodo1APICaller.Views
 {
     /// <summary>
     /// Displays and edits an order.

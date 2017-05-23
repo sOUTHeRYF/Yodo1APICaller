@@ -48,7 +48,7 @@
 
 using System;
 
-namespace ContosoApp.Commands
+namespace Yodo1APICaller.Commands
 {
     /// <summary>
     /// Base command for relay commands.

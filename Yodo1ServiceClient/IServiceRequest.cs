@@ -29,14 +29,23 @@ namespace Yodo1ServiceClient
         protected async Task<T> PostData<T>(String url,HttpContent content) where T:IServiceResponse,new()
         {
             T responseObj = new T();
-
             HttpResponseMessage response = await innerClient.PostAsync(url, content);
             string resultStr = await response.Content.ReadAsStringAsync();
             responseObj.SetWebStatus(response.StatusCode);
             responseObj.SetRes(resultStr);
             return responseObj;
         }
-       abstract  public Task<IServiceResponse> MakeCall(int api,Dictionary<string,string> param);
+        protected async Task<T> GetData<T>(String url, HttpContent content) where T : IServiceResponse, new()
+        {
+            //todo
+            T responseObj = new T();
+            HttpResponseMessage response = await innerClient.PostAsync(url, content);
+            string resultStr = await response.Content.ReadAsStringAsync();
+            responseObj.SetWebStatus(response.StatusCode);
+            responseObj.SetRes(resultStr);
+            return responseObj;
+        }
+        abstract  public Task<IServiceResponse> MakeCall(int api,Dictionary<string,string> param);
        
     }
 }

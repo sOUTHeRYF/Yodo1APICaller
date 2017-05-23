@@ -31,7 +31,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace ContosoApp.ViewModels
+namespace Yodo1APICaller.ViewModels
 {
     /// <summary>
     /// Encapsulates data for the Order detail page. 
