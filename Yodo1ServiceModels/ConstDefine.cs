@@ -8,6 +8,8 @@ namespace Yodo1ServiceModels
 {
     public class ConstDefine
     {
-        public static readonly string PARAM_NAME_GAMEAPPKEY = "game_appkey";
+        public static readonly string PARAM_NAME_GAMEAPPKEY     = "game_appkey";
+        public static readonly string PARAM_NAME_CHANNEL            = "channel";
     }
 }
+ 

@@ -16,6 +16,14 @@ namespace Yodo1ServiceModels.DataSource.OnlineConfig
             Dictionary<string, string> requestParams = new Dictionary<string, string>();
             requestParams.Add(ConstDefine.PARAM_NAME_GAMEAPPKEY, game_appkey);
             OnlineConfigResponse response =  await Yodo1ServiceClient.Yodo1ServiceRequest.OnlineConfigService.MakeCall((int)Services.WEBGET,requestParams) as OnlineConfigResponse;
+            if(response.GetWebStatus() == System.Net.HttpStatusCode.OK)
+            {
+                Dictionary<string, object> resultDic = (Dictionary<string,object>)response.GetCustomResult();
+                if (null != resultDic)
+                {
+
+                }
+            }
          }
          
 

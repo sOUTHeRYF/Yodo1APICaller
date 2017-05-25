@@ -10,7 +10,11 @@ namespace Yodo1ServiceClient.OnlineConfig
     {
         new public object GetCustomResult()
         {
-            if(this.)
+            if (!string.IsNullOrWhiteSpace(this.GetRes()))
+            {
+                Dictionary<string, object> result = (Dictionary<string, object>)JSONHelper.Deserialize(this.GetRes());
+                return result;
+            }
             return 0;
         }
     }
