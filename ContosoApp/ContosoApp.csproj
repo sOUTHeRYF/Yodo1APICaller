@@ -134,6 +134,8 @@
     <Compile Include="ViewModels\CustomerDetailPageViewModel.cs" />
     <Compile Include="ViewModels\CustomerListPageViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\OnlineConfig\ConfigBodyListPageViewModel.cs" />
+    <Compile Include="ViewModels\OnlineConfig\ConfigBodyViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailPageViewModel.cs" />
     <Compile Include="ViewModels\OrderListPageViewModel.cs" />
     <Compile Include="Views\CustomerDetailPage.xaml.cs">
@@ -225,6 +227,10 @@
     <ProjectReference Include="..\ContosoModels\ContosoModels.csproj">
       <Project>{a4ae13ca-7436-4244-bac0-0c3408ea70dd}</Project>
       <Name>ContosoModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yodo1ServiceModels\Yodo1ServiceModels.csproj">
+      <Project>{51dd81d3-4e37-44c3-ae7f-a7130a950c2a}</Project>
+      <Name>Yodo1ServiceModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

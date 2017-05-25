@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Yodo1ServiceClient.OnlineConfig
 {
-    class OnlineConfigResponse : IServiceResponse
+    public class OnlineConfigResponse : IServiceResponse
     {
-        override public int GetCustomResult()
+        new public object GetCustomResult()
         {
+            if(this.)
             return 0;
         }
     }

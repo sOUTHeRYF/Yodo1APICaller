@@ -19,6 +19,14 @@ namespace Yodo1ServiceClient
         {
             innerWebStatus = status;
         }
+        public string GetRes()
+        {
+            return innerResStr;
+        }
+        public HttpStatusCode GetWebStatus()
+        {
+            return innerWebStatus;
+        }
         public  void FailureNoConfigure()
         {
             this.innerResStr = "-1000";
@@ -27,9 +35,9 @@ namespace Yodo1ServiceClient
         {
             this.innerResStr = "-1001";
         }
-        public int GetCustomResult()
+        public object GetCustomResult()
         {
-            return 0;
+            return null;
         }
     }
 }
