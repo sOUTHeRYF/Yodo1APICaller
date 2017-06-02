@@ -35,6 +35,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 
+using Yodo1APICaller.Views.OnlineConfig;
 namespace Yodo1APICaller
 {
     /// <summary>
@@ -60,6 +61,12 @@ namespace Yodo1APICaller
                     Label = "Order list",
                     DestPage = typeof(OrderListPage)
                 },
+                new NavMenuItem()
+                {
+                    Symbol = Symbol.HangUp,
+                    Label = "Online Config",
+                    DestPage = typeof(ConfigBodyListPage)
+                }
             });
 
         public static AppShell Current = null;

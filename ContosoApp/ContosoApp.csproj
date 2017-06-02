@@ -144,6 +144,9 @@
     <Compile Include="Views\CustomerListPage.xaml.cs">
       <DependentUpon>CustomerListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\OnlineConfig\ConfigBodyListPage.xaml.cs">
+      <DependentUpon>ConfigBodyListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OrderDetailPage.xaml.cs">
       <DependentUpon>OrderDetailPage.xaml</DependentUpon>
     </Compile>
@@ -206,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomerListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OnlineConfig\ConfigBodyListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
