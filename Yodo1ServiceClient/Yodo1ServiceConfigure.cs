@@ -15,7 +15,7 @@ namespace Yodo1ServiceClient
         /// Load Configure;
         /// Todo:load from xml
         /// </summary>
-        public void InitConfigure()
+        public static void InitConfigure()
         {
             Dictionary<int, APIContent> olconfigContent = new Dictionary<int, APIContent>();
             olconfigContent.Add(OnlineConfig.Services.ADD.ToInteger(), new APIContent("config/add", RequestType.POST));

@@ -97,7 +97,7 @@ namespace Yodo1APICaller.ViewModels
         /// <summary>
         /// Gets the complete list of customers from the database.
         /// </summary>
-        public async Task GetConfigBodyListAsync()
+        public async Task GetCustomerListAsync()
         {
             await Utilities.CallOnUiThreadAsync(() => IsLoading = true); 
 
