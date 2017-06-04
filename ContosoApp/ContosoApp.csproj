@@ -16,7 +16,8 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>ContosoApp_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>ContosoApp_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>0B4761906F3425151D7A7AF57B2F95DA33CF2D25</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -89,6 +90,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="ContosoApp_StoreKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +115,9 @@
     <Compile Include="UserControls\ContosoListView.cs" />
     <Compile Include="UserControls\DetailExpander.xaml.cs">
       <DependentUpon>DetailExpander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HeaderComboBox.xaml.cs">
+      <DependentUpon>HeaderComboBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PageHeader.xaml.cs">
       <DependentUpon>PageHeader.xaml</DependentUpon>
@@ -165,6 +170,7 @@
   <ItemGroup>
     <Content Include="Assets\userPlaceholder.png" />
     <Content Include="FodyWeavers.xml" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -197,6 +203,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\DetailExpander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\HeaderComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -30,17 +30,25 @@
                     <TextBlock Style="{StaticResource PageTitleTextBlockStyle}" Text="Online Config"/>
                 </uc:PageHeader.HeaderContent>
             </uc:PageHeader>
-
+            <uc:HeaderComboBox x:Name="GameSelectBox" LeftText="AAA"
+                               HorizontalAlignment="Stretch"
+                               RelativePanel.LeftOf="ServiceParamsSep"
+                        
+                   
+                               />
             <!--
                 On Windows 10, version 1607 or later, set DefaultLabelPosition to Right in code.
                 See CommandBar_Loaded event handler.
             -->
+            <AppBarSeparator x:Name="ServiceParamsSep" Width="40"
+                RelativePanel.LeftOf="mainCommandBar"
+                />
             <CommandBar x:Name="mainCommandBar"
                         HorizontalAlignment="Stretch"
                         Background="Transparent"
                         Loaded="CommandBar_Loaded"
                         RelativePanel.LeftOf="CustomerSearchBox"
-                        RelativePanel.RightOf="PageTitle">
+                        >
                 <AppBarButton Click="ViewDetails_Click"
                               Icon="Contact"
                               IsEnabled="{x:Bind ViewModel.SelectedCustomer, Converter={StaticResource nullToBoolConverter}, Mode=OneWay}"

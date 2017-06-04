@@ -50,7 +50,6 @@ namespace Yodo1APICaller.UserControls
         {
             titleBar.Margin = new Thickness(e.Right, 0, 0, 0);
         }
-
         public UIElement HeaderContent
         {
             get { return (UIElement)GetValue(HeaderContentProperty); }
