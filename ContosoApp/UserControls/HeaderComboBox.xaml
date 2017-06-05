@@ -15,12 +15,13 @@
     d:DesignWidth="200">
     <Grid x:Name="grid" Background="{x:Bind Background}">
         <RelativePanel x:Name="titleBar">
-            <TextBlock x:Name="content"
+            <TextBlock x:Name="strContent"
                               HorizontalAlignment="Center"
-                              Margin="0,12,0,-12"                     
+                              Margin="0,15,0,-15"                     
                               Text="{x:Bind LeftText}" VerticalAlignment="Center"/>
             <ComboBox x:Name="comboBox"
-                              RelativePanel.RightOf="content" Margin="5,10,-5,-10"
+                              RelativePanel.RightOf="strContent" Margin="5,10,-5,-10"
+                              DropDownClosed="comboBox_DropDownClosed"
                       />
         </RelativePanel>
     </Grid>

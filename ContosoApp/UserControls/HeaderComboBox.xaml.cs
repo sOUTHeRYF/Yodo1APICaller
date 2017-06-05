@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
+using Yodo1APICaller;
 namespace Yodo1APICaller.UserControls
 {
     public sealed partial class HeaderComboBox : UserControl
@@ -30,6 +31,14 @@ namespace Yodo1APICaller.UserControls
             };
         }
         public string LeftText { get; set; }
+        public Action<string> onComboxSelectionChanged;
+        public void SetComboxContent(List<CustomContentPair<string>> contents)
+        {
+            if (null != contents)
+            {
+                comboBox.DataContext = contents;
+            }
+        }
         /// <summary>
         /// Changes the title bar margin thickness.
         /// </summary>
@@ -40,13 +49,21 @@ namespace Yodo1APICaller.UserControls
         private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine(e.Size.Width);
-            if (e.Size.Width <= 320)
+            if (e.Size.Width <= 1200)
             {
                 this.Visibility = Visibility.Collapsed;
             }
             else
             {
                 this.Visibility = Visibility.Visible;
+            }
+        }
+        private void comboBox_DropDownClosed(object sender, object e)
+        {
+            if (null != onComboxSelectionChanged)
+            {
+                CustomContentPair<string> item = (CustomContentPair<string>)comboBox.SelectedItem;
+                onComboxSelectionChanged.Invoke(item.GetContent());
             }
         }
     }

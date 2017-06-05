@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converter="using:Yodo1APICaller.ValueConverters"  
-    xmlns:local="using:ContosoApp.Views.OnlineConfig"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:stateTriggers="using:Yodo1APICaller.StateTriggers"
@@ -30,12 +29,25 @@
                     <TextBlock Style="{StaticResource PageTitleTextBlockStyle}" Text="Online Config"/>
                 </uc:PageHeader.HeaderContent>
             </uc:PageHeader>
-            <uc:HeaderComboBox x:Name="GameSelectBox" LeftText="AAA"
+            <uc:HeaderComboBox x:Name="GameSelectBox" LeftText="游戏:"
+                               HorizontalAlignment="Stretch"
+                               RelativePanel.LeftOf="ChannelSelectBox"
+                        
+                   
+                               />
+            <uc:HeaderComboBox x:Name="ChannelSelectBox" LeftText="渠道"
+                               HorizontalAlignment="Stretch"
+                               RelativePanel.LeftOf="VersionSelectBox"
+                        
+                   
+                               />
+            <uc:HeaderComboBox x:Name="VersionSelectBox" LeftText="版本"
                                HorizontalAlignment="Stretch"
                                RelativePanel.LeftOf="ServiceParamsSep"
                         
                    
                                />
+
             <!--
                 On Windows 10, version 1607 or later, set DefaultLabelPosition to Right in code.
                 See CommandBar_Loaded event handler.

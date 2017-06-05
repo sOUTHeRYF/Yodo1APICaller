@@ -100,6 +100,7 @@
     <Compile Include="AppShell.xaml.cs">
       <DependentUpon>AppShell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommonDefine.cs" />
     <Compile Include="StateTriggers\MobileScreenTrigger.cs" />
     <Compile Include="UserControls\CopyRightControl.xaml.cs">
       <DependentUpon>CopyRightControl.xaml</DependentUpon>
