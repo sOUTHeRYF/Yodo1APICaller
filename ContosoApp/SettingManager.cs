@@ -21,18 +21,24 @@ namespace Yodo1APICaller
         private static readonly SettingManager _instance = new SettingManager();
 
         private StorageFile storageFile;
-        private Dictionary<string, List<Dictionary<string,string>>> innerDic = new Dictionary<string, List<Dictionary<string, string>>>();
+        //  private Dictionary<string, List<Dictionary<string,string>>> innerDic = new Dictionary<string, List<Dictionary<string, string>>>();
+        private Dictionary<string, object> innerDic = new Dictionary<string,object>();
         public async static void Init()
         {
             _instance.storageFile = await Windows.Storage.ApplicationData.Current.RoamingFolder.CreateFileAsync(SAVE_FILE_NAME,CreationCollisionOption.OpenIfExists);
             string result = await FileIO.ReadTextAsync(_instance.storageFile);
             try
             {
-                if(!string.IsNullOrWhiteSpace(result))
-                _instance.innerDic = (Dictionary<string, List<Dictionary<string, string>>>)JSONHelper.Deserialize(result);
+                if (!string.IsNullOrWhiteSpace(result))
+                {
+                    Dictionary<string, object> tempValue = (Dictionary<string, object>)JSONHelper.Deserialize(result);
+                    _instance.innerDic = tempValue;
+                } 
             }
             catch (Exception e)
-            { }
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
             if (null != _instance.innerDic)
             {
                 _instance.innerDic = loadDefaultSettring();
@@ -42,25 +48,38 @@ namespace Yodo1APICaller
         public static List<CustomContentPair<string>>  GetSetting(SettingArticle article)
         {
             List<CustomContentPair<string>> result = new List<CustomContentPair<string>>();
-            switch (article)
+            try
             {
-                case SettingArticle.GAME_LIST: {
-                        result.Add(new CustomContentPair<string>("变形金刚-国内安卓", "23lqbnB7LY"));
-                        result.Add(new CustomContentPair<string>("疯狂动物园", "2qzpQ2MGQd"));
-                        result.Add(new CustomContentPair<string>("Test", "test"));
-                    } break;
+                if (null != _instance.innerDic && _instance.innerDic.ContainsKey(article.ToString()))
+                {
+                    List<Dictionary<string,string>> tempList = (List<Dictionary<string, string>>)_instance.innerDic[article.ToString()];
+                    if (null != tempList && tempList.Count > 0)
+                    {
+                        foreach (Dictionary<string, string> tempDic in tempList)
+                        {
+                            result.Add(new CustomContentPair<string>((string)tempDic["Custom"], (string)tempDic["Content"]));
+                        }
+                    }
+                }
             }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
+
+          
+     
             return result;
         }
         public async static void SaveSetting()
         {
-            string result = JSONHelper.Serialize((Dictionary<string,object>)_instance.innerDic);
+            string result = JSONHelper.Serialize(_instance.innerDic);
             await FileIO.WriteTextAsync(_instance.storageFile, result);
         }
 
-        private static Dictionary<string, List<Dictionary<string, string>>> loadDefaultSettring()
+        private static Dictionary<string, object> loadDefaultSettring()
         {
-            Dictionary<string, List<Dictionary<string, string>>> result = new Dictionary<string, List<Dictionary<string, string>>>();
+            Dictionary<string, object> result = new Dictionary<string, object>();
             result[SettingArticle.GAME_LIST.ToString()] = new List<Dictionary<string, string>>().
                 AddTo(new Dictionary<string, string>().AddTo(KEY_CONTENT, "23lqbnB7LY").AddTo(KEY_CUSTOM, "变形金刚-国内安卓")).
                 AddTo(new Dictionary<string, string>().AddTo(KEY_CONTENT, "2qzpQ2MGQd").AddTo(KEY_CUSTOM, "疯狂动物园")).
@@ -419,10 +438,10 @@ namespace Yodo1APICaller
             void SerializeValue(object value)
             {
                 IList<Object> asList;
-                IList<IDictionary<string, string>> asMixList;
+                List<Dictionary<string, string>> asMixList;
                 IDictionary<string, Object> asDict;
-                IDictionary<string, string> asStrDict;
-                IDictionary<string, IList<IDictionary<string, string>>> asMixDict;
+                Dictionary<string, string> asStrDict;
+                Dictionary<string, List<Dictionary<string, string>>> asMixDict;
 
                 string asStr;
                 if (value == null)
@@ -441,7 +460,7 @@ namespace Yodo1APICaller
                 {
                     SerializeArray(asList);
                 }
-                else if ((asMixList = value as IList<IDictionary<string, string>>) != null)
+                else if ((asMixList = value as List<Dictionary<string, string>>) != null)
                 {
                     SerializeArray(asMixList);
                 }
@@ -449,11 +468,11 @@ namespace Yodo1APICaller
                 {
                     SerializeObject(asDict);
                 }
-                else if ((asStrDict = value as IDictionary<string, string>) != null)
+                else if ((asStrDict = value as Dictionary<string, string>) != null)
                 {
                     SerializeObject(asStrDict);
                 }
-                else if ((asMixDict = value as IDictionary<string, IList<IDictionary<string, string>>>) != null)
+                else if ((asMixDict = value as Dictionary<string, List<Dictionary<string, string>>>) != null)
                 {
                     SerializeObject(asMixDict);
                 }
@@ -483,7 +502,56 @@ namespace Yodo1APICaller
                 }
                 builder.Append('}');
             }
+            void SerializeObject(Dictionary<string, string> obj)
+            {
+                bool first = true;
+                builder.Append('{');
+                foreach (string e in obj.Keys)
+                {
+                    if (!first)
+                    {
+                        builder.Append(',');
+                    }
+                    SerializeString(e);
+                    builder.Append(':');
+                    SerializeValue(obj[e]);
+                    first = false;
+                }
+                builder.Append('}');
+            }
+            void SerializeObject(Dictionary<string, List<Dictionary<string, string>>> obj)
+            {
+                bool first = true;
+                builder.Append('{');
+                foreach (string e in obj.Keys)
+                {
+                    if (!first)
+                    {
+                        builder.Append(',');
+                    }
+                    SerializeString(e);
+                    builder.Append(':');
+                    SerializeValue(obj[e]);
+                    first = false;
+                }
+                builder.Append('}');
+            }
             void SerializeArray(IList<Object> anArray)
+            {
+                builder.Append('[');
+                bool first = true;
+                foreach (object obj in anArray)
+                {
+                    if (!first)
+                    {
+                        builder.Append(',');
+                    }
+                    SerializeValue(obj);
+                    first = false;
+                }
+                builder.Append(']');
+            }
+            void SerializeArray(List<Dictionary<string, string>> anArray)
             {
                 builder.Append('[');
                 bool first = true;

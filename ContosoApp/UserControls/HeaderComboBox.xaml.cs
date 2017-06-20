@@ -36,7 +36,7 @@ namespace Yodo1APICaller.UserControls
         {
             if (null != contents)
             {
-                comboBox.DataContext = contents;
+                comboBox.ItemsSource = contents;
             }
         }
         /// <summary>
