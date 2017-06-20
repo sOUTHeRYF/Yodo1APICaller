@@ -1,8 +1,11 @@
 ﻿using Yodo1APICaller.ViewModels;
 using PropertyChanged;
 using System.Linq;
+
+using System.Collections.Generic;
 using Windows.Foundation.Metadata;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using System;
@@ -42,7 +45,12 @@ namespace Yodo1APICaller.Views.OnlineConfig
                 mainCommandBar.DefaultLabelPosition = CommandBarDefaultLabelPosition.Bottom;
             }
         }
-
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.GameSelectBox.SetComboxContent(SettingManager.GetSetting(SettingArticle.GAME_LIST));
+            this.ChannelSelectBox.SetComboxContent(SettingManager.GetSetting(SettingArticle.CHANNEL_LIST));
+            this.VersionSelectBox.SetComboxContent(SettingManager.GetSetting(SettingArticle.VERSION));
+        }
         /// <summary>
         /// Navigates to a blank customer details page for the user to fill in.
         /// </summary>

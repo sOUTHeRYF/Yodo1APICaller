@@ -48,7 +48,6 @@ namespace Yodo1APICaller.UserControls
         }
         private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(e.Size.Width);
             if (e.Size.Width <= 1200)
             {
                 this.Visibility = Visibility.Collapsed;

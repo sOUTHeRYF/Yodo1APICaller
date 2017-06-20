@@ -39,7 +39,7 @@
                                HorizontalAlignment="Stretch"
                                RelativePanel.LeftOf="VersionSelectBox"
                         
-                   
+      
                                />
             <uc:HeaderComboBox x:Name="VersionSelectBox" LeftText="版本"
                                HorizontalAlignment="Stretch"
@@ -61,7 +61,7 @@
                         Loaded="CommandBar_Loaded"
                         RelativePanel.LeftOf="CustomerSearchBox"
                         >
-                <AppBarButton Click="ViewDetails_Click"
+                <!--AppBarButton Click="ViewDetails_Click"
                               Icon="Contact"
                               IsEnabled="{x:Bind ViewModel.SelectedCustomer, Converter={StaticResource nullToBoolConverter}, Mode=OneWay}"
                               Label="View details"
@@ -71,7 +71,7 @@
                               IsEnabled="{x:Bind ViewModel.SelectedCustomer, Converter={StaticResource nullToBoolConverter}, Mode=OneWay}"
                               Label="Add order"
                               ToolTipService.ToolTip="Add order"/>
-                <AppBarSeparator/>
+                <AppBarSeparator/-->
                 <AppBarButton Click="CreateCustomer_Click"
                               Icon="Add"
                               Label="New"

@@ -24,5 +24,29 @@ namespace Yodo1APICaller
             return content;
         }
     }
-
+    public static class ExtDefine
+    {
+        public static Object GetOrDefault(this Dictionary<string, Object> source, string key, object defaultValue)
+        {
+            if (source.ContainsKey(key))
+                return source[key];
+            else
+                return defaultValue;
+        }
+        public static Dictionary<string, string> AddTo(this Dictionary<string, string> source, string key, string value)
+        {
+            source.Add(key, value);
+            return source;
+        }
+        public static List<string> AddTo(this List<string> source, string value)
+        {
+            source.Add(value);
+            return source;
+        }
+        public static List<Dictionary<string,string>> AddTo(this List<Dictionary<string, string>> source, Dictionary<string, string> value)
+        {
+            source.Add(value);
+            return source;
+        }
+    }
 }
