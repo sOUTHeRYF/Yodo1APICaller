@@ -102,7 +102,7 @@
             </Grid>
 
             <telerikGrid:RadDataGrid x:Name="DataGrid"
-                                     ItemsSource="{x:Bind ViewModel.Customers}"
+                                     ItemsSource="{x:Bind ViewModel.ConfigBodys}"
                                      SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}"
                                      UserEditMode="Inline"
                                      GroupPanelPosition="Left"

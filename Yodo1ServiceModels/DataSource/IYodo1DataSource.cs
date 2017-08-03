@@ -23,5 +23,6 @@ namespace Yodo1ServiceModels
             catch (Exception e)
             { }
         }
+        virtual public Task<IEnumerable<Object>> GetAsync(params string[] data) { return null; }
     }
 }

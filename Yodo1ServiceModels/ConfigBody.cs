@@ -12,6 +12,14 @@ namespace Yodo1ServiceModels
         public string Value = "";
         public string Type = "";
         public string Des = "";
+        public ConfigBody(){}
+        public ConfigBody(string Key, string Value, string Type, string Des)
+        {
+            this.Key = Key;
+            this.Value = Value;
+            this.Type = Type;
+            this.Des = Des;
+        }
         public static ConfigBody ParseFromDic(Dictionary<string, object> dic)
         {
             ConfigBody result = new ConfigBody();

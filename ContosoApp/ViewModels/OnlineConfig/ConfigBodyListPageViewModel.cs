@@ -9,6 +9,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
+using System.Collections.Generic;
+using Yodo1ServiceModels;
+using Yodo1ServiceModels.DataSource;
 namespace Yodo1APICaller.ViewModels
 {
     [ImplementPropertyChanged]
@@ -23,7 +26,7 @@ namespace Yodo1APICaller.ViewModels
         /// </summary>
         public ConfigBodyListPageViewModel()
         {
-            Task.Run(GetCustomerListAsync);
+            Task.Run(GetConfigListAsync);
             SyncCommand = new RelayCommand(OnSync);
         }
 
@@ -32,7 +35,8 @@ namespace Yodo1APICaller.ViewModels
         /// </summary>
         public ObservableCollection<CustomerViewModel> Customers { get; set; } =
             new ObservableCollection<CustomerViewModel>();
-
+        public ObservableCollection<ConfigBodyViewModel> ConfigBodys { get; set; } =
+            new ObservableCollection<ConfigBodyViewModel>();
         private CustomerViewModel _selectedCustomer;
         /// <summary>
         /// Gets or sets the selected customer, or null if no customer is selected. 
@@ -97,7 +101,32 @@ namespace Yodo1APICaller.ViewModels
                 IsLoading = false;
             });
         }
-
+        public async Task GetConfigListAsync()
+        {
+            await Utilities.CallOnUiThreadAsync(() => IsLoading = true);
+            /*
+            var db = new Yodo1DataSource();
+            db.OnlineConfig.Init();
+            db.OnlineConfig.SetArticle(0);
+            var configbodys = await db.OnlineConfig.GetAsync();
+            */
+            List<ConfigBody> configbodys = new List<ConfigBody>();
+            configbodys.Add(new ConfigBody("ak","av","at","ad"));
+            configbodys.Add(new ConfigBody("bk", "bv", "bt", "bd"));
+            if (configbodys == null)
+            {
+                return;
+            }
+            await Utilities.CallOnUiThreadAsync(() =>
+            {
+                ConfigBodys.Clear();
+                foreach (var c in configbodys)
+                {
+                    ConfigBodys.Add(new ConfigBodyViewModel((ConfigBody)c) { Validate = true });
+                }
+                IsLoading = false;
+            });
+        }
         public RelayCommand SyncCommand { get; private set; }
 
         /// <summary>
@@ -105,16 +134,24 @@ namespace Yodo1APICaller.ViewModels
         /// </summary>
         private void OnSync()
         {
+            /*todo
             Task.Run(async () =>
             {
                 IsLoading = true;
-                var db = new ContosoDataSource();
+                var db = new Yodo1DataSource();
                 foreach (var modifiedCustomer in Customers
                     .Where(x => x.IsModified).Select(x => x.Model))
                 {
                     await db.Customers.PostAsync(modifiedCustomer);
                 }
                 await GetCustomerListAsync();
+                IsLoading = false;
+            });
+            */
+            Task.Run(async () =>
+            {
+                IsLoading = true;
+                await GetConfigListAsync();
                 IsLoading = false;
             });
         }

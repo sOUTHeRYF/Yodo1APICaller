@@ -10,10 +10,13 @@ namespace Yodo1ServiceModels.DataSource.OnlineConfig
 {
     class OnlineConfigDataSource : IYodo1DataSource
     {
-         public async Task<IEnumerable<ConfigBody>> WebGetAsync(int article,string game_appkey,string version,string channel)
+         public override async Task<IEnumerable<Object>> GetAsync(params string[] data)
          {
             List<ConfigBody> result = new List<ConfigBody>();
             Dictionary<string, string> requestParams = new Dictionary<string, string>();
+            string game_appkey = data[0];
+            string channel = data[1];
+            string version = data[2];
             requestParams.Add(ConstDefine.PARAM_NAME_GAMEAPPKEY, game_appkey);
             requestParams.Add(ConstDefine.PARAM_NAME_CHANNEL, channel);
             requestParams.Add(ConstDefine.PARAM_NAME_VERSION, version);
